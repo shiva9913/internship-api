@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Internship Portal</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Internship Portal</h1>
+        <p>Find an internship and submit your application.</p>
+    </header>
+
+    <main>
+
+        <!-- Internship section -->
+
+        <section class="card">
+
+            <h2>Available Internships</h2>
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search internship..."
+                >
+
+                <button id="searchButton">
+                    Search
+                </button>
+
+            </div>
+
+            <p id="loading" class="loading">
+                Loading internships...
+            </p>
+
+            <p id="error" class="error"></p>
+
+            <div id="internshipList"></div>
+
+        </section>
+
+
+        <!-- Application section -->
+
+        <section class="card">
+
+            <h2>Apply for Internship</h2>
+
+            <form id="applicationForm">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    minlength="2"
+                    maxlength="100"
+                    required
+                >
+
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+
+
+                <label for="internshipId">
+                    Internship
+                </label>
+
+                <select
+                    id="internshipId"
+                    name="internshipId"
+                    required
+                >
+                    <option value="">
+                        Select internship
+                    </option>
+                </select>
+
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    minlength="10"
+                    maxlength="1000"
+                    required
+                ></textarea>
+
+
+                <button type="submit">
+                    Submit Application
+                </button>
+
+            </form>
+
+            <p id="formMessage"></p>
+
+        </section>
+
+    </main>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

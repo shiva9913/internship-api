@@ -7,7 +7,7 @@ const db = require("./db");
 
 const app = express();
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // -------------------------
 // Security middleware
@@ -178,14 +178,14 @@ app.post(
             }
 
             if (
-                typeof email !== "string" ||
-                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
-            ) {
-                return res.status(400).json({
-                    success: false,
-                    error: "Please enter a valid email address."
-                });
-            }
+    typeof email !== "string" ||
+    !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())
+) {
+    return res.status(400).json({
+        success: false,
+        error: "Please enter a valid email address."
+    });
+}
 
             if (
                 typeof internshipId !== "string" ||
@@ -276,6 +276,6 @@ app.get("/api/health", (req, res) => {
 // Start server
 // -------------------------
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
